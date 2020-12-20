@@ -2,13 +2,13 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
-/[Ll]ibrary/
-/[Tt]emp/
-/[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
-/[Ll]ogs/
-/[Mm]emoryCaptures/
+CursoNavidad-Xnergic/[Ll]ibrary/
+CursoNavidad-Xnergic/[Tt]emp/
+CursoNavidad-Xnergic/[Oo]bj/
+CursoNavidad-Xnergic/[Bb]uild/
+CursoNavidad-Xnergic/[Bb]uilds/
+CursoNavidad-Xnergic/[Ll]ogs/
+CursoNavidad-Xnergic/[Mm]emoryCaptures/
 
 # Never ignore Asset meta data
 !/[Aa]ssets/**/*.meta
