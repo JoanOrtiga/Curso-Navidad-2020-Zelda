@@ -30,14 +30,14 @@ public class Player : MonoBehaviour
         //ANIMACIÓ
         if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
         {
-            anim.SetFloat("movX", moviment.x);
-            anim.SetFloat("movY", moviment.y);
+            anim.SetFloat("MovX", moviment.x);
+            anim.SetFloat("MovY", moviment.y);
 
-            anim.SetBool("Movense", true);
+            anim.SetBool("Moventse", true);
         }
         else
         {
-            anim.SetBool("Movense", false);
+            anim.SetBool("Moventse", false);
         }
 
 
