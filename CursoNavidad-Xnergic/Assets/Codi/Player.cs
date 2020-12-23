@@ -28,11 +28,11 @@ public class Player : MonoBehaviour
                                                       velocitat * Time.deltaTime);
        
         //ANIMACIÓ
-        anim.SetFloat("movX", moviment.x);
-        anim.SetFloat("movY", moviment.y);
-
         if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
         {
+            anim.SetFloat("movX", moviment.x);
+            anim.SetFloat("movY", moviment.y);
+
             anim.SetBool("Movense", true);
         }
         else
