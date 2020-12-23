@@ -33,22 +33,22 @@ public class Player : MonoBehaviour
 
         if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
         {
-            anim.SetBool("isMoving", true);
+            anim.SetBool("Movense", true);
         }
         else
         {
-            anim.SetBool("isMoving", false);
+            anim.SetBool("Movense", false);
         }
 
 
         //ATAC
         if (Input.GetButtonDown("Fire1"))
         {    
-            anim.SetBool("isAtac", true);
+            anim.SetBool("Atacan", true);
         }
         else if(Input.GetButtonUp("Fire1"))
         {
-            anim.SetBool("isAtac", false);
+            anim.SetBool("Atacan", false);
         }
 
     }
