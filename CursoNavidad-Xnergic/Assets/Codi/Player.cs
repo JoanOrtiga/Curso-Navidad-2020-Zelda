@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     //VARIABLES
     public float velocitat = 4f;
     public Animator anim;
-
+    public Rigidbody2D rb;
 
     // Start es crida una vegada al principi
     void Start()
@@ -22,11 +22,13 @@ public class Player : MonoBehaviour
         //MOVIMENT
         Vector3 moviment = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0);
 
-                                        //MoveTowards(Lloc de inici, On volem anar, la velocitat)
+        //MoveTowards(Lloc de inici, On volem anar, la velocitat)
         this.transform.position = Vector3.MoveTowards(transform.position,
-                                                      transform.position + moviment, 
+                                                      transform.position + moviment,
                                                       velocitat * Time.deltaTime);
-       
+
+        //rb.velocity = new Vector2(moviment.x, moviment.y);
+
         //ANIMACIÓ
         if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
         {
