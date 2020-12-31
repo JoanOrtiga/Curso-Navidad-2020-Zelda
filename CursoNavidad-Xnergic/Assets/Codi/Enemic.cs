@@ -12,7 +12,8 @@ public class Enemic : MonoBehaviour
     private EstatEnemic estatActual = EstatEnemic.patrullar;
 
     public int vidaMaxima = 3;
-    private int vidaActual;
+    [HideInInspector]
+    public int vidaActual;
 
     public float radiPatrulla = 5f;
     private Vector2 posicioRandom;
@@ -46,6 +47,11 @@ public class Enemic : MonoBehaviour
             case EstatEnemic.perseguir:
                 Perseguir();
                 break;
+        }
+
+        if (vidaActual <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 

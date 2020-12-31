@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8245289324277399178}
   - component: {fileID: 8245289324277399177}
   - component: {fileID: 8245289324277399176}
+  - component: {fileID: 799505557684636318}
   m_Layer: 0
   m_Name: Rupia
   m_TagString: Untagged
@@ -115,4 +116,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 137107b05b4f15e4eb917ed43a27bd7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  punts: 0
+  punts: 1
+--- !u!58 &799505557684636318
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8245289324277399183}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.00000014901161, y: -0.010451701}
+  serializedVersion: 2
+  m_Radius: 0.24

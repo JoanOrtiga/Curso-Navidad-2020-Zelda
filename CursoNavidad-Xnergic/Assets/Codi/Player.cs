@@ -5,14 +5,19 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     //VARIABLES
+
+    //MOVIMENT
     public float velocitat = 4f;
     private Animator anim;
     private Rigidbody2D rb;
+    private Vector2 moviment;
 
+    //STATS JOC
     public int vida;
     public int punts;
 
-    private Vector2 moviment;
+    //ATAC
+    private bool atacant;
 
 
     // Start es crida una vegada al principi
@@ -51,13 +56,34 @@ public class Player : MonoBehaviour
 
         //ATAC
         if (Input.GetButtonDown("Fire1"))
-        {    
+        {
+            atacant = true;
             anim.SetBool("Atacan", true);
         }
         else if(Input.GetButtonUp("Fire1"))
         {
+            atacant = false;
             anim.SetBool("Atacan", false);
         }
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (atacant == true)
+        {
+            if (collision.CompareTag("Enemic"))
+            {
+                
+                collision.GetComponent<Enemic>().vidaActual -= 1;
+            }
+
+            if (collision.CompareTag("Destructible"))
+            {
+                collision.GetComponent<EnemicSpawn>().vidaSpawn -= 1;
+
+            }
+        }
+        
     }
 }
