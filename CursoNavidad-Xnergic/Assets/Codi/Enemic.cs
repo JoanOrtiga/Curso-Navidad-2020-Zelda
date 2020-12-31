@@ -35,7 +35,7 @@ public class Enemic : MonoBehaviour
         vidaActual = vidaMaxima;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         switch (estatActual)
         {
