@@ -1,0 +1,348 @@
+fileFormatVersion: 2
+guid: 00a809c4a9fbe7545b942a0f3834c4ce
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3945485084415357092
+    second: Rupia_0
+  - first:
+      213: 6270068758857042544
+    second: Rupia_1
+  - first:
+      213: 6516006202099939994
+    second: Rupia_2
+  - first:
+      213: -2689817257749801198
+    second: Rupia_3
+  - first:
+      213: -7916269572392726264
+    second: Rupia_4
+  - first:
+      213: 5066149854189080855
+    second: Rupia_5
+  - first:
+      213: 3041890173804773595
+    second: Rupia_6
+  - first:
+      213: -6142284858380940816
+    second: Rupia_7
+  - first:
+      213: 5937664094168454871
+    second: Rupia_8
+  - first:
+      213: -8560349312061188685
+    second: Rupia_9
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Rupia_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 51
+        width: 31
+        height: 25
+      alignment: 9
+      pivot: {x: 0.5187306, y: 0.5510968}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5f02d44832de39c0800000000000000
+      internalID: -3945485084415357092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rupia_1
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 46
+        width: 31
+        height: 31
+      alignment: 9
+      pivot: {x: 0.50374603, y: 0.6311141}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07ac2f0e052c30750800000000000000
+      internalID: 6270068758857042544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rupia_2
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 46
+        width: 31
+        height: 31
+      alignment: 9
+      pivot: {x: 0.51498413, y: 0.6311141}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9ab8661e118d6a50800000000000000
+      internalID: 6516006202099939994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rupia_3
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 48
+        width: 31
+        height: 29
+      alignment: 9
+      pivot: {x: 0.5037463, y: 0.60411626}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2179b119479dbaad0800000000000000
+      internalID: -2689817257749801198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rupia_4
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 50
+        width: 31
+        height: 27
+      alignment: 9
+      pivot: {x: 0.51498413, y: 0.5774197}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8015c4f14c2c32290800000000000000
+      internalID: -7916269572392726264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rupia_5
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 12
+        width: 31
+        height: 25
+      alignment: 9
+      pivot: {x: 0.49250776, y: 0.53716165}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71156d563749e4640800000000000000
+      internalID: 5066149854189080855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rupia_6
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 12
+        width: 31
+        height: 25
+      alignment: 9
+      pivot: {x: 0.5112382, y: 0.5418068}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd082671ff6f63a20800000000000000
+      internalID: 3041890173804773595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rupia_7
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 12
+        width: 31
+        height: 25
+      alignment: 9
+      pivot: {x: 0.5037458, y: 0.5464519}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f981fae67832caa0800000000000000
+      internalID: -6142284858380940816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rupia_8
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 12
+        width: 31
+        height: 25
+      alignment: 9
+      pivot: {x: 0.51498413, y: 0.53716165}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d69088d802d66250800000000000000
+      internalID: 5937664094168454871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rupia_9
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 12
+        width: 31
+        height: 25
+      alignment: 9
+      pivot: {x: 0.4999995, y: 0.5418068}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b55555c7a7833980800000000000000
+      internalID: -8560349312061188685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 3275df8224fb11947bac90ea9ff0f2a4
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

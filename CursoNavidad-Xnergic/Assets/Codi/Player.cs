@@ -9,6 +9,10 @@ public class Player : MonoBehaviour
     public Animator anim;
     public Rigidbody2D rb;
 
+    public int vida;
+    public int punts;
+
+
     // Start es crida una vegada al principi
     void Start()
     {
