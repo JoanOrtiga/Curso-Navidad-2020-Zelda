@@ -9,24 +9,30 @@ public class Enemic : MonoBehaviour
         patrullar, perseguir
     }
 
-    private EstatEnemic estatActual;
+    private EstatEnemic estatActual = EstatEnemic.patrullar;
 
-    public float radiPatrulla = 3f;
+    public int vidaMaxima = 3;
+    private int vidaActual;
+
+    public float radiPatrulla = 5f;
     private Vector2 posicioRandom;
-    private float marge;
+    public float marge;
 
     public float velocitatMoviment = 6;
 
     public Transform player;
+    private Rigidbody2D rb;
 
     public LayerMask vista;
-    public float angleDeVisio;
+    public float distanciaDeVisio;
 
-    private Vector2 forward;
     private void Start()
     {
         posicioRandom = Random.insideUnitCircle * radiPatrulla;
         player = FindObjectOfType<Player>().transform;
+        rb = GetComponent<Rigidbody2D>();
+
+        vidaActual = vidaMaxima;
     }
 
     private void Update()
@@ -45,13 +51,16 @@ public class Enemic : MonoBehaviour
 
     public void Patrullar()
     {
+
         if ((posicioRandom - (Vector2)transform.position).magnitude < marge)
         {
             posicioRandom = Random.insideUnitCircle * radiPatrulla;
         }
         else
         {
-            Vector2.MoveTowards(transform.position, posicioRandom, velocitatMoviment * Time.deltaTime);
+            Vector2 direccio = posicioRandom - (Vector2)transform.position;
+            
+            rb.MovePosition(new Vector2(rb.position.x + direccio.x * velocitatMoviment * Time.deltaTime, rb.position.y + direccio.y * velocitatMoviment * Time.deltaTime));
         }
 
         VeigJugador();
@@ -61,22 +70,32 @@ public class Enemic : MonoBehaviour
     {
         VeigJugador();
 
-        Vector2.MoveTowards(transform.position, player.position, velocitatMoviment * Time.deltaTime);
+        Vector2 direccio = (Vector2)player.position - (Vector2)transform.position;
+
+        rb.MovePosition(new Vector2(rb.position.x + direccio.x * velocitatMoviment * Time.deltaTime, rb.position.y + direccio.y * velocitatMoviment * Time.deltaTime));
     }
 
     private void VeigJugador()
     {
-        Vector2 direction = player.position - transform.position;
+        float distancia = (player.position - transform.position).magnitude;
 
-        bool isOnCone = Vector2.Angle(forward, direction.normalized) < angleDeVisio;
-
-        if (isOnCone && !Physics.Linecast(transform.position, player.position, vista.value))
+        if (distancia < distanciaDeVisio && !Physics.Linecast(transform.position, player.position, vista.value))
         {
             estatActual = EstatEnemic.perseguir;
         }
         else
         {
             estatActual = EstatEnemic.patrullar;
+        }
+    }
+
+    public void GetDamage(int dany)
+    {
+        vidaActual -= dany;
+
+        if(vidaActual <= 0)
+        {
+            gameObject.SetActive(false);
         }
     }
 }
