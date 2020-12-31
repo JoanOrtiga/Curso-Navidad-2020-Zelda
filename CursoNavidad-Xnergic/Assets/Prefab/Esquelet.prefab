@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7917855124665440590}
   m_Layer: 0
   m_Name: Esquelet
-  m_TagString: Untagged
+  m_TagString: Enemic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -165,6 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vidaMaxima: 3
+  vidaActual: 0
   radiPatrulla: 5
   marge: 0.5
   velocitatMoviment: 0.5
