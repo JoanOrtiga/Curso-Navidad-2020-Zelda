@@ -27,13 +27,32 @@ public class Enemic : MonoBehaviour
     public LayerMask vista;
     public float distanciaDeVisio;
 
+    private float attackDistance;
+    public int malAtac = 1;
+    public float atacCooldown = 1f;
+    public float cooldownAtacTimer;
+
+    Vector2 posicioInicial;
+
     private void Start()
     {
-        posicioRandom = Random.insideUnitCircle * radiPatrulla;
+        posicioInicial = transform.position;
+
+        posicioRandom = posicioInicial + Random.insideUnitCircle * radiPatrulla;
         player = FindObjectOfType<Player>().transform;
         rb = GetComponent<Rigidbody2D>();
 
         vidaActual = vidaMaxima;
+
+       
+    }
+
+    private void Update()
+    {
+        if (vidaActual <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void FixedUpdate()
@@ -48,24 +67,18 @@ public class Enemic : MonoBehaviour
                 Perseguir();
                 break;
         }
-
-        if (vidaActual <= 0)
-        {
-            Destroy(gameObject);
-        }
     }
 
     public void Patrullar()
     {
-
         if ((posicioRandom - (Vector2)transform.position).magnitude < marge)
         {
-            posicioRandom = Random.insideUnitCircle * radiPatrulla;
+            posicioRandom = posicioInicial + Random.insideUnitCircle * radiPatrulla;
         }
         else
         {
             Vector2 direccio = posicioRandom - (Vector2)transform.position;
-            
+
             rb.MovePosition(new Vector2(rb.position.x + direccio.x * velocitatMoviment * Time.deltaTime, rb.position.y + direccio.y * velocitatMoviment * Time.deltaTime));
         }
 
@@ -79,6 +92,23 @@ public class Enemic : MonoBehaviour
         Vector2 direccio = (Vector2)player.position - (Vector2)transform.position;
 
         rb.MovePosition(new Vector2(rb.position.x + direccio.x * velocitatMoviment * Time.deltaTime, rb.position.y + direccio.y * velocitatMoviment * Time.deltaTime));
+
+        Atacar();
+    }
+
+    private void Atacar()
+    {
+        if ((player.position - transform.position).magnitude < attackDistance)
+        {
+            if(cooldownAtacTimer < 0)
+            {
+                player.GetComponent<Player>().RebreDany(malAtac);
+
+                cooldownAtacTimer = atacCooldown;
+            }
+        }
+
+        cooldownAtacTimer -= Time.deltaTime;
     }
 
     private void VeigJugador()
@@ -95,11 +125,11 @@ public class Enemic : MonoBehaviour
         }
     }
 
-    public void GetDamage(int dany)
+    public void RebreDany(int dany)
     {
         vidaActual -= dany;
 
-        if(vidaActual <= 0)
+        if (vidaActual <= 0)
         {
             gameObject.SetActive(false);
         }

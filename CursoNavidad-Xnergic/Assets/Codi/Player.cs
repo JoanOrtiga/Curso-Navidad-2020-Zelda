@@ -27,6 +27,8 @@ public class Player : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
+
+
     private void FixedUpdate()
     {
         Vector2 direction = Vector2.ClampMagnitude(moviment, 1f);
@@ -53,19 +55,22 @@ public class Player : MonoBehaviour
             anim.SetBool("Moventse", false);
         }
 
-
         //ATAC
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButton("Fire1"))
         {
             atacant = true;
             anim.SetBool("Atacan", true);
         }
-        else if(Input.GetButtonUp("Fire1"))
+        else
         {
             atacant = false;
             anim.SetBool("Atacan", false);
         }
 
+        if(vida <= 0)
+        {
+            print("GAME OVER");
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -85,5 +90,10 @@ public class Player : MonoBehaviour
             }
         }
         
+    }
+
+    public void RebreDany(int dany)
+    {
+        vida -= dany;
     }
 }
