@@ -27,7 +27,7 @@ public class EnemicSpawn : MonoBehaviour
            
             if (temps > tempsEntreEnemics)
             {
-                print("SPAWN");
+
                 enemicRandom = Random.Range(0, enemic.Length);
                 Instantiate(enemic[enemicRandom], transform.position, transform.rotation);
                 temps = 0;

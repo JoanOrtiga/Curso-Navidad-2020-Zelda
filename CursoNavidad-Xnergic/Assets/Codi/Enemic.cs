@@ -6,7 +6,7 @@ public class Enemic : MonoBehaviour
 {
     public enum EstatEnemic
     {
-        patrullar, perseguir
+        patrullar, perseguir, atacar
     }
 
     private EstatEnemic estatActual = EstatEnemic.patrullar;
@@ -20,13 +20,14 @@ public class Enemic : MonoBehaviour
     public float marge;
     public float tempsMaximPatrulla = 2.5f;
     private float temporitzadorPatrulla;
+    private Animator anim;
 
     public float velocitatMoviment = 6;
 
     public Transform player;
     private Rigidbody2D rb;
 
-    
+
     public float distanciaDeVisio;
 
     public float distanciaAtac = 0.5f;
@@ -38,12 +39,12 @@ public class Enemic : MonoBehaviour
 
     private void Start()
     {
-        posicioInicial = transform.position;
-
-        posicioRandom = posicioInicial + Random.insideUnitCircle * radiPatrulla;
+        anim = GetComponent<Animator>();
         player = FindObjectOfType<Player>().transform;
         rb = GetComponent<Rigidbody2D>();
 
+        posicioInicial = transform.position;
+        posicioRandom = posicioInicial + Random.insideUnitCircle * radiPatrulla;
         vidaActual = vidaMaxima;
     }
 
@@ -66,7 +67,13 @@ public class Enemic : MonoBehaviour
             case EstatEnemic.perseguir:
                 Perseguir();
                 break;
+
+            case EstatEnemic.atacar:
+                Atacar();
+                break;
         }
+
+        VeigJugador();
     }
 
     public void Patrullar()
@@ -83,50 +90,57 @@ public class Enemic : MonoBehaviour
 
             temporitzadorPatrulla -= Time.deltaTime;
 
-            if(temporitzadorPatrulla <= 0)
+            anim.SetBool("Moventse", true);
+            anim.SetBool("Atacan", false);
+            anim.SetFloat("MovX", direccio.normalized.x);
+            anim.SetFloat("MovY", direccio.normalized.y);
+
+            if (temporitzadorPatrulla <= 0)
             {
                 posicioRandom = posicioInicial + Random.insideUnitCircle * radiPatrulla;
                 temporitzadorPatrulla = tempsMaximPatrulla;
             }
-        }
-
-        VeigJugador();
+        }     
     }
 
     public void Perseguir()
     {
-        VeigJugador();
-
         Vector2 direccio = (Vector2)player.position - (Vector2)transform.position;
 
         rb.MovePosition(new Vector2(rb.position.x + direccio.x * velocitatMoviment * Time.deltaTime, rb.position.y + direccio.y * velocitatMoviment * Time.deltaTime));
 
-        Atacar();
+        anim.SetBool("Moventse", true);
+        anim.SetBool("Atacan", false);
+        anim.SetFloat("MovX", direccio.normalized.x);
+        anim.SetFloat("MovY", direccio.normalized.y);
+
+        
     }
 
     private void Atacar()
     {
-        if ((player.position - transform.position).magnitude < distanciaAtac)
+        if (cooldownAtacTimer < 0)
         {
-            print(cooldownAtacTimer);
-
-            if(cooldownAtacTimer < 0)
-            {
-                player.GetComponent<Player>().RebreDany(malAtac);
-
-                cooldownAtacTimer = atacCooldown;
-            }
+            player.GetComponent<Player>().RebreDany(malAtac);
+            anim.SetBool("Moventse", false);
+            anim.SetBool("Atacan", true);
+            cooldownAtacTimer = atacCooldown;
         }
-
         cooldownAtacTimer -= Time.deltaTime;
+        
     }
 
     private void VeigJugador()
     {
         float distancia = (player.position - transform.position).magnitude;
 
-        if (distancia < distanciaDeVisio && !Physics.Linecast(transform.position, player.position))
-        {
+        
+        if ((player.position - transform.position).magnitude < distanciaAtac)
+        {    
+            estatActual = EstatEnemic.atacar;
+        }
+        else if (distancia < distanciaDeVisio && !Physics.Linecast(transform.position, player.position))
+        {          
             estatActual = EstatEnemic.perseguir;
         }
         else
