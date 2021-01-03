@@ -85,7 +85,11 @@ public class Player : MonoBehaviour
             if (collision.CompareTag("Destructible"))
             {
                 collision.GetComponent<EnemicSpawn>().vidaSpawn -= 1;
-
+            }
+            
+            if (collision.CompareTag("Cofre"))
+            {
+                Destroy(collision.gameObject);
             }
         }
         
