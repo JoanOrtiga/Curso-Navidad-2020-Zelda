@@ -48,7 +48,6 @@ public class CameraPrincipal : MonoBehaviour
         if (isHalf)
         {
             cameraBounds = new Bounds(transform.position, new Vector3(2f * deathZoneWidth + halfSizeTarget, 2f * deathZoneHeight + halfSizeTarget, 100f));
-
         }
         else
             cameraBounds = new Bounds(transform.position, new Vector3(2f * deathZoneWidth, 2f * deathZoneHeight, 100f));
