@@ -24,7 +24,7 @@ public class Enemic : MonoBehaviour
     public Transform player;
     private Rigidbody2D rb;
 
-    public LayerMask vista;
+    
     public float distanciaDeVisio;
 
     private float attackDistance;
@@ -115,7 +115,7 @@ public class Enemic : MonoBehaviour
     {
         float distancia = (player.position - transform.position).magnitude;
 
-        if (distancia < distanciaDeVisio && !Physics.Linecast(transform.position, player.position, vista.value))
+        if (distancia < distanciaDeVisio && !Physics.Linecast(transform.position, player.position))
         {
             estatActual = EstatEnemic.perseguir;
         }
