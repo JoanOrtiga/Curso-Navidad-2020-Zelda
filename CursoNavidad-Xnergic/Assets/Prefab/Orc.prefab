@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1034407303}
   - component: {fileID: 1034407304}
   - component: {fileID: 1034407302}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Orc
   m_TagString: Enemic
   m_Icon: {fileID: 0}
@@ -168,9 +168,11 @@ MonoBehaviour:
   vidaActual: 0
   radiPatrulla: 5
   marge: 0.5
+  tempsMaximPatrulla: 4
   velocitatMoviment: 0.5
   player: {fileID: 0}
   distanciaDeVisio: 5
+  distanciaAtac: 0.8
   malAtac: 1
   atacCooldown: 1
   cooldownAtacTimer: 0

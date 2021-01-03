@@ -18,6 +18,8 @@ public class Enemic : MonoBehaviour
     public float radiPatrulla = 5f;
     private Vector2 posicioRandom;
     public float marge;
+    public float tempsMaximPatrulla = 2.5f;
+    private float temporitzadorPatrulla;
 
     public float velocitatMoviment = 6;
 
@@ -27,7 +29,7 @@ public class Enemic : MonoBehaviour
     
     public float distanciaDeVisio;
 
-    private float attackDistance;
+    public float distanciaAtac = 0.5f;
     public int malAtac = 1;
     public float atacCooldown = 1f;
     public float cooldownAtacTimer;
@@ -43,8 +45,6 @@ public class Enemic : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         vidaActual = vidaMaxima;
-
-       
     }
 
     private void Update()
@@ -80,6 +80,14 @@ public class Enemic : MonoBehaviour
             Vector2 direccio = posicioRandom - (Vector2)transform.position;
 
             rb.MovePosition(new Vector2(rb.position.x + direccio.x * velocitatMoviment * Time.deltaTime, rb.position.y + direccio.y * velocitatMoviment * Time.deltaTime));
+
+            temporitzadorPatrulla -= Time.deltaTime;
+
+            if(temporitzadorPatrulla <= 0)
+            {
+                posicioRandom = posicioInicial + Random.insideUnitCircle * radiPatrulla;
+                temporitzadorPatrulla = tempsMaximPatrulla;
+            }
         }
 
         VeigJugador();
@@ -98,8 +106,10 @@ public class Enemic : MonoBehaviour
 
     private void Atacar()
     {
-        if ((player.position - transform.position).magnitude < attackDistance)
+        if ((player.position - transform.position).magnitude < distanciaAtac)
         {
+            print(cooldownAtacTimer);
+
             if(cooldownAtacTimer < 0)
             {
                 player.GetComponent<Player>().RebreDany(malAtac);
