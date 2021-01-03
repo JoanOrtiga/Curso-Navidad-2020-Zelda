@@ -79,7 +79,6 @@ public class Player : MonoBehaviour
         {
             if (collision.CompareTag("Enemic"))
             {
-                
                 collision.GetComponent<Enemic>().vidaActual -= 1;
             }
 
